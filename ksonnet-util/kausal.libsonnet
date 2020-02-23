@@ -63,14 +63,13 @@ k {
       },
 
       persistentVolumeClaim+:: {
-        new(name='')::
-          if name != '' then
-            if 'new' in super
-            then super.new(name)
-            else
-              {} + super.mixin.metadata.withName(name)
-          else
-            {},
+        // new() creates a new PVC with the given name (e.g. grafana)
+        // and of the given size (e.g. 300Gi)
+        new(name, size, mode='ReadWriteOnce')::
+          super.new()
+          + super.mixin.metadata.withName(name)
+          + super.mixin.spec.withAccessModes(mode)
+          + super.mixin.spec.resources.withRequests({ storage: size }),
       },
 
       container:: $.apps.v1.deployment.mixin.spec.template.spec.containersType {
