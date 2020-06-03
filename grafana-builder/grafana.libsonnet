@@ -83,7 +83,7 @@
     tags: [],
     editable: true,
     gnetId: null,
-    graphTooltip: 0,
+    graphTooltip: 2,
     templating: {
       list: [
         {
