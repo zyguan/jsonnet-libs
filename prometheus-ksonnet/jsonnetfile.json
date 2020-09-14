@@ -59,6 +59,16 @@
                 }
             },
             "version": "master"
+        },
+        {
+            "name": "grafana",
+            "source": {
+                "git": {
+                    "remote": "https://github.com/grafana/jsonnet-libs",
+                    "subdir": "grafana"
+                }
+            },
+            "version": "master"
         }
     ]
 }
