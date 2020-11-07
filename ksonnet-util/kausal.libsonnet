@@ -301,7 +301,7 @@ k {
           role.mixin.metadata.withNamespace($._config.namespace) +
           role.withRules(rules),
 
-        cluster_role_binding:
+        role_binding:
           roleBinding.new() +
           roleBinding.mixin.metadata.withName(name) +
           roleBinding.mixin.metadata.withNamespace($._config.namespace) +
