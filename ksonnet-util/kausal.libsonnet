@@ -65,8 +65,9 @@ k {
       persistentVolumeClaim+:: {
         new(name='')::
           if name != '' then
-            if 'new' in super
-            then super.new(name)
+            if std.objectHas(supper, 'new')
+            then
+              super.new(name)
             else
               {} + super.mixin.metadata.withName(name)
           else
